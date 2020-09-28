@@ -6,6 +6,7 @@ require_relative 'config/environment'
 
 require_relative 'bot/commands'
 require_relative 'bot/slash_commands'
+require_relative 'bot/events'
 
 run Rails.application
 
