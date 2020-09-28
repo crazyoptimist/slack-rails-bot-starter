@@ -44,3 +44,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'slack-ruby-bot-server'
 gem 'kaminari-mongoid'
 gem 'mongoid-scroll'
+gem "slack-ruby-bot-server-events"

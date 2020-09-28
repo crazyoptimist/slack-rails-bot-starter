@@ -5,6 +5,7 @@ require_relative 'config/environment'
 # Requires Slack Bot Actions
 
 require_relative 'bot/commands'
+require_relative 'bot/slash_commands'
 
 run Rails.application
 

@@ -234,6 +234,8 @@ GEM
       rack-rewrite
       rack-server-pages
       slack-ruby-bot (>= 0.12.0)
+    slack-ruby-bot-server-events (0.2.0)
+      slack-ruby-bot-server (>= 0.12.0)
     slack-ruby-client (0.15.1)
       faraday (>= 1.0)
       faraday_middleware
@@ -276,6 +278,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
   slack-ruby-bot-server
+  slack-ruby-bot-server-events
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
