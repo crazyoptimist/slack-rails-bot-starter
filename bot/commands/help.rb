@@ -8,6 +8,7 @@ class Help < SlackRubyBot::Commands::Base
     Slash Commands
     --------
     /ping              - Responds with a simple 'pong' message
+    /quiz              - Do a simple quiz using interactive message (test action)
     ```
   EOS
   def self.call(client, data, _match)
