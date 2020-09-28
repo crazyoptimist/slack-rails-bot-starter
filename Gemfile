@@ -40,3 +40,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Slack Ruby Bot Server
+gem 'slack-ruby-bot-server'
+gem 'kaminari-mongoid'
+gem 'mongoid-scroll'

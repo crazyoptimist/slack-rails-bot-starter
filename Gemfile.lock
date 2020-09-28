@@ -56,23 +56,84 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    async (1.26.2)
+      console (~> 1.0)
+      nio4r (~> 2.3)
+      timers (~> 4.1)
+    async-io (1.30.1)
+      async (~> 1.14)
+    async-websocket (0.8.0)
+      async-io
+      websocket-driver (~> 0.7.0)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
     bson (4.10.0)
     builder (3.2.4)
     byebug (11.1.3)
     concurrent-ruby (1.1.7)
+    console (1.9.0)
     crass (1.0.6)
+    declarative (0.0.20)
+    declarative-option (0.1.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    dry-configurable (0.11.6)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 0.4, >= 0.4.7)
+      dry-equalizer (~> 0.2)
+    dry-container (0.7.2)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 0.1, >= 0.1.3)
+    dry-core (0.4.9)
+      concurrent-ruby (~> 1.0)
+    dry-equalizer (0.3.0)
+    dry-inflector (0.2.0)
+    dry-logic (1.0.7)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 0.2)
+      dry-equalizer (~> 0.2)
+    dry-types (1.4.0)
+      concurrent-ruby (~> 1.0)
+      dry-container (~> 0.3)
+      dry-core (~> 0.4, >= 0.4.4)
+      dry-equalizer (~> 0.3)
+      dry-inflector (~> 0.1, >= 0.1.2)
+      dry-logic (~> 1.0, >= 1.0.2)
     erubi (1.9.0)
+    faraday (1.0.1)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (1.0.0)
+      faraday (~> 1.0)
     ffi (1.13.1)
+    foreman (0.87.2)
+    gli (2.19.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    grape (1.4.0)
+      activesupport
+      builder
+      dry-types (>= 1.1)
+      mustermann-grape (~> 1.0.0)
+      rack (>= 1.3.0)
+      rack-accept
+    grape-roar (0.4.1)
+      grape
+      multi_json
+      roar (~> 1.1.0)
+    grape-swagger (1.3.0)
+      grape (~> 1.3)
+    hashie (4.1.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    kaminari-core (1.2.1)
+    kaminari-grape (1.0.1)
+      grape
+      kaminari-core (~> 1.0)
+    kaminari-mongoid (1.0.1)
+      kaminari-core (~> 1.0)
+      mongoid
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -93,13 +154,33 @@ GEM
     mongoid (7.1.2)
       activemodel (>= 5.1, < 6.1)
       mongo (>= 2.7.0, < 3.0.0)
+    mongoid-compatibility (0.5.1)
+      activesupport
+      mongoid (>= 2.0)
+    mongoid-scroll (0.3.6)
+      i18n
+      mongoid (>= 3.0)
+      mongoid-compatibility
     msgpack (1.3.3)
+    multi_json (1.15.0)
+    multipart-post (2.1.1)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    mustermann-grape (1.0.1)
+      mustermann (>= 1.0.0)
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     puma (4.3.6)
       nio4r (~> 2.0)
     rack (2.2.3)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
+    rack-rewrite (1.5.1)
+    rack-server-pages (0.1.0)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.3.3)
@@ -132,6 +213,33 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    representable (3.0.4)
+      declarative (< 0.1.0)
+      declarative-option (< 0.2.0)
+      uber (< 0.2.0)
+    roar (1.1.0)
+      representable (~> 3.0.0)
+    ruby2_keywords (0.0.2)
+    slack-ruby-bot (0.16.0)
+      hashie
+      slack-ruby-client (>= 0.14.0)
+    slack-ruby-bot-server (0.12.2)
+      async-websocket (~> 0.8.0)
+      foreman
+      grape
+      grape-roar (>= 0.4.0)
+      grape-swagger
+      kaminari-grape
+      rack-cors
+      rack-rewrite
+      rack-server-pages
+      slack-ruby-bot (>= 0.12.0)
+    slack-ruby-client (0.15.1)
+      faraday (>= 1.0)
+      faraday_middleware
+      gli
+      hashie
+      websocket-driver
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -145,8 +253,10 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.0.1)
     thread_safe (0.3.6)
+    timers (4.3.2)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    uber (0.1.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -159,10 +269,13 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   dotenv-rails (~> 2.7)
+  kaminari-mongoid
   listen (~> 3.2)
   mongoid
+  mongoid-scroll
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
+  slack-ruby-bot-server
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
