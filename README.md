@@ -11,17 +11,17 @@
 1. Create an app at https://api.slack.com/apps?new_classic_app=1
 2. Navigate to the **OAuth & Permissions** page and add the following **bot** scopes:
 
-  - `channels:read` (Read messages)
-  - `chat:write:bot` (to send messages)
-  - `commands` (To Install via slash commands)
-  - `groups:read` (View information in channels and groups)
-  - `im:write` (to open a DM channel between your bot and a user)
+- `channels:read` (Read messages)
+- `chat:write:bot` (to send messages)
+- `commands` (To Install via slash commands)
+- `groups:read` (View information in channels and groups)
+- `im:write` (to open a DM channel between your bot and a user)
 
-  **BASE_URL** stands for https://slackbot-hosted-domain.com hereafter. <br />
-  Add in the Redirect section this url: `BASE_URL` <br />
-3. Activate Interactivity & Shortcuts and add this url: `BASE_URL/api/slack/action` <br />
-4. Activate Slash Commands adding a slash command `/install` and add this url: `BASE_URL/api/slack/command` <br />
-5. Activate Event Subscriptions subscribing to the event type `member_joined_channel` and add this url: `BASE_URL/api/slack/event` <br />
+  **BASE_URL** stands for https://slackbot-hosted-domain.com hereafter.  
+  Add in the Redirect section this url: `BASE_URL`  
+3. Activate Interactivity & Shortcuts and add this url: `BASE_URL/api/slack/action`  
+4. Activate Slash Commands adding a slash command `/install` and add this url: `BASE_URL/api/slack/command`  
+5. Activate Event Subscriptions subscribing to the event type `member_joined_channel` and add this url: `BASE_URL/api/slack/event`  
 6. Add a Bot with the desired username and mark as always online
 
 ### Clone the repository and install dependencies
@@ -35,7 +35,7 @@ bundle install
 ```bash
 cp .env.example .env
 ```
-Go to https://api.slack.com/apps and click your application. <br />
+Go to https://api.slack.com/apps and click your application.  
 Grab the infomation needed for .env file from **Basic Information** section.
 
 ## Run the application
@@ -55,7 +55,7 @@ Open your browser on `localhost:3000`
 
 ## LICENSE
 
-MIT
+**MIT**
 
 ## THANKS
 
