@@ -18,11 +18,11 @@
 - `im:write` (to open a DM channel between your bot and a user)
 
   **BASE_URL** stands for https://slackbot-hosted-domain.com hereafter.  
-  Use this url for *Redirect* : `BASE_URL`  
-3. Activate *Interactivity & Shortcuts* and add this url: `BASE_URL/api/slack/action`  
-4. Activate *Slash Commands* adding a slash command `/install` and add this url: `BASE_URL/api/slack/command`  
-5. Activate *Event Subscriptions* subscribing to the event type `member_joined_channel` and add this url: `BASE_URL/api/slack/event`  
-6. Add a *bot user* with a username and check in *always online*
+  Use this url for **Redirect** : `BASE_URL`  
+3. Activate **Interactivity & Shortcuts** and add this url: `BASE_URL/api/slack/action`  
+4. Activate **Slash Commands** adding a slash command `/install` and add this url: `BASE_URL/api/slack/command`  
+5. Activate **Event Subscriptions** subscribing to the event type `member_joined_channel` and add this url: `BASE_URL/api/slack/event`  
+6. Add a **bot user** with a username and check in **always online**
 
 ### Clone the repository and install dependencies
 
@@ -36,7 +36,7 @@ bundle install
 cp .env.example .env
 ```
 Go to https://api.slack.com/apps and click your application.  
-Grab the infomation needed for .env file from *Basic Information* section.
+Grab the infomation needed for .env file from **Basic Information** section.
 
 ## Run the application
 
