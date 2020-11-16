@@ -41,7 +41,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Slack Ruby Bot Server
-gem 'slack-ruby-bot-server'
+gem 'slack-ruby-bot-server', github: 'dblock/slack-ruby-bot-server', branch: 'oauth-v2'
 gem 'kaminari-mongoid'
 gem 'mongoid-scroll'
 gem "slack-ruby-bot-server-events"

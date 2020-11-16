@@ -1,3 +1,20 @@
+GIT
+  remote: https://github.com/dblock/slack-ruby-bot-server.git
+  revision: 0b56772121d976077ab16c3d9a90deb8e81173f8
+  branch: oauth-v2
+  specs:
+    slack-ruby-bot-server (1.1.0)
+      async
+      foreman
+      grape
+      grape-roar (>= 0.4.0)
+      grape-swagger
+      kaminari-grape
+      rack-cors
+      rack-rewrite
+      rack-server-pages
+      slack-ruby-client
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -218,17 +235,6 @@ GEM
     roar (1.1.0)
       representable (~> 3.0.0)
     ruby2_keywords (0.0.2)
-    slack-ruby-bot-server (1.0.0)
-      async
-      foreman
-      grape
-      grape-roar (>= 0.4.0)
-      grape-swagger
-      kaminari-grape
-      rack-cors
-      rack-rewrite
-      rack-server-pages
-      slack-ruby-client
     slack-ruby-bot-server-events (0.2.0)
       slack-ruby-bot-server (>= 0.12.0)
     slack-ruby-client (0.15.1)
@@ -272,7 +278,7 @@ DEPENDENCIES
   mongoid-scroll
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
-  slack-ruby-bot-server
+  slack-ruby-bot-server!
   slack-ruby-bot-server-events
   spring
   spring-watcher-listen (~> 2.0.0)
