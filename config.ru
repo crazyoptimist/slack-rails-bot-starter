@@ -10,5 +10,3 @@ require_relative 'bot/actions'
 
 run Rails.application
 
-# SlackRubyBotServer::App.instance.prepare!
-# SlackRubyBotServer::Service.start!
