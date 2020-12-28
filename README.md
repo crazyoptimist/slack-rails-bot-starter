@@ -19,7 +19,7 @@ A domain(or a subdomain) is ready to host the application
   **BASE_URL** stands for https://slackbot-hosted-domain.com hereafter.  
   Use this url for **Redirect** : `BASE_URL`
 3. Activate **Interactivity & Shortcuts** and add this url: `BASE_URL/api/slack/action` 
-4. Activate **Slash Commands** adding a slash command `/ping` and add this url: `BASE_URL/api/slack/command`
+4. Activate **Slash Commands** adding two slash commands `/ping`, `/quiz` and use this url: `BASE_URL/api/slack/command`
 5. Activate **Event Subscriptions** subscribing to the event type `member_joined_channel` and add this url: `BASE_URL/api/slack/event`(This step needs the application to be running :D so you can skip this and come back a few mins later)
 6. Navigate to the **App Home** page and toggle **Always Show My Bot as Online** (according to your reference)
 
