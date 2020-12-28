@@ -31,7 +31,7 @@ SlackRubyBotServer::Events.configure do |config|
   config.on :command, '/quiz' do |command|
     team_id = command[:team_id]
     channel_id = command[:channel_id]
-    command.logger.info "Someone is doing a quiz in channel #{channel_id}."
+    command.logger.info "Someone started a quiz in channel #{channel_id}."
     question = "Can octopuses change their color?"
     team = Team.where(team_id: team_id).first
     slack_client = Slack::Web::Client.new(token: team.token)

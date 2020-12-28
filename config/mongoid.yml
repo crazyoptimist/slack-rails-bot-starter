@@ -3,9 +3,6 @@ default: &default
     default:
       uri: <%= ENV.fetch("MONGO_URL") %>
       options:
-        # The user's database roles.
-        roles:
-          - 'dbOwner'
         auth_source: admin
 
 production:

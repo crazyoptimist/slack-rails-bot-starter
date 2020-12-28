@@ -8,9 +8,9 @@ SlackRubyBotServer::Events.configure do |config|
     team = Team.where(team_id: team_id).first
     slack_client = Slack::Web::Client.new(token: team.token)
     if action_name == 'reply_yes'
-      slack_client.chat_postMessage(channel: channel_id, text: "Great! I also think so! :)")
+      slack_client.chat_postMessage(channel: channel_id, text: "Great! I also think so! :thumbsup:")
     elsif action_name == 'reply_no'
-      slack_client.chat_postMessage(channel: channel_id, text: "Hmmm, is Google also think so?")
+      slack_client.chat_postMessage(channel: channel_id, text: "Oops! Try to google it... :thumbsdown:")
     end
     # Do not send text message any more
     nil
