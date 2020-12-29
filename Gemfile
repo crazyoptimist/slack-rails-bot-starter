@@ -44,4 +44,4 @@ end
 gem 'slack-ruby-bot-server', '~> 1.1.0'
 gem 'kaminari-mongoid'
 gem 'mongoid-scroll'
-gem "slack-ruby-bot-server-events"
+gem 'slack-ruby-bot-server-events', github: 'crazyoptimist/slack-ruby-bot-server-events', branch: 'feature/support-blocks'

@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/crazyoptimist/slack-ruby-bot-server-events.git
+  revision: 2c4173ae2f1f8d50aac2382ebe7b115d5e644574
+  branch: feature/support-blocks
+  specs:
+    slack-ruby-bot-server-events (0.2.1)
+      slack-ruby-bot-server (>= 0.12.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -101,7 +109,7 @@ GEM
       ruby2_keywords
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
-    ffi (1.13.1)
+    ffi (1.14.2)
     fiber-local (1.0.0)
     foreman (0.87.2)
     gli (2.19.2)
@@ -130,10 +138,10 @@ GEM
     kaminari-mongoid (1.0.1)
       kaminari-core (~> 1.0)
       mongoid
-    listen (3.3.1)
+    listen (3.3.3)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.7.0)
+    loofah (2.8.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -145,11 +153,11 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.2)
-    mongo (2.13.1)
+    mongo (2.14.0)
       bson (>= 4.8.2, < 5.0.0)
-    mongoid (7.1.5)
+    mongoid (7.2.0)
       activemodel (>= 5.1, < 6.1)
-      mongo (>= 2.7.0, < 3.0.0)
+      mongo (>= 2.10.5, < 3.0.0)
     mongoid-compatibility (0.5.1)
       activesupport
       mongoid (>= 2.0)
@@ -167,7 +175,7 @@ GEM
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
-    puma (4.3.6)
+    puma (4.3.7)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-accept (0.4.5)
@@ -205,7 +213,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
-    rake (13.0.1)
+    rake (13.0.3)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -227,8 +235,6 @@ GEM
       rack-rewrite
       rack-server-pages
       slack-ruby-client
-    slack-ruby-bot-server-events (0.2.0)
-      slack-ruby-bot-server (>= 0.12.0)
     slack-ruby-client (0.15.1)
       faraday (>= 1.0)
       faraday_middleware
@@ -249,13 +255,13 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     timers (4.3.2)
-    tzinfo (1.2.8)
+    tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uber (0.1.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.4.1)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
@@ -271,7 +277,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
   slack-ruby-bot-server (~> 1.1.0)
-  slack-ruby-bot-server-events
+  slack-ruby-bot-server-events!
   spring
   spring-watcher-listen (~> 2.0.0)
 
