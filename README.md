@@ -55,7 +55,7 @@ Not limited to any specific platform
 
 ## TODO
 
-[ ] Change the interactive message templates to the new ones  
+[x] Change the interactive message templates to the new ones  
 [ ] Add Rubocop linting  
 [ ] Add Specs  
 [ ] Add TravisCI build flow  
