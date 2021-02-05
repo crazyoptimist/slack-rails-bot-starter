@@ -63,4 +63,6 @@ Not limited to any specific platform
 
 ## Credit
 This project is built on top of the [Slack Ruby Bot Server](https://github.com/slack-ruby/slack-ruby-bot-server) and [Slack Ruby Bot Server Events](https://github.com/slack-ruby/slack-ruby-bot-server-events)  
-A big thanks to [Daniel Doubrovkine](https://github.com/dblock)'s great work.
+A big thanks to [Daniel Doubrovkine](https://github.com/dblock)'s great work.  
+
+Made with :heart: by [CrazyOptimist](https://github.com/crazyoptimist) :dolphin:
