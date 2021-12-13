@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+
+  rails_api:
+    container_name: rails_api
+    build: .
+    volumes:
+      - "./:/app/"
+      - "./log:/app/log"
+    ports:
+      - "3000:3000"
+    command: bash -c "rails s -b 0.0.0.0"
+    restart: unless-stopped
