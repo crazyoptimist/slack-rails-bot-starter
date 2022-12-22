@@ -25,6 +25,11 @@ gem 'bootsnap', '>= 1.15.0', require: false
 # ODM for mongodb
 gem 'mongoid'
 
+gem 'kaminari-mongoid'
+gem 'mongoid-scroll'
+
+gem 'slack-ruby-bot-server-events'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -39,8 +44,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# Slack Ruby Bot Server
-gem 'kaminari-mongoid'
-gem 'mongoid-scroll'
-gem 'slack-ruby-bot-server-events'
