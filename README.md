@@ -1,5 +1,8 @@
 # Slack Rails Bot Starter
 
+This is a boilerplate for building [slack apps](https://api.slack.com/start) with Ruby on Rails.  
+The default branch `master` uses Mongoid as database adapter. For ActiveRecord, checkout [`postgres`](https://github.com/crazyoptimist/slack-rails-bot-starter/tree/postgres) branch.
+
 ## Setup
 
 #### Prerequisites
