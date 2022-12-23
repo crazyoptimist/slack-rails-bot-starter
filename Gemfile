@@ -22,8 +22,11 @@ gem 'bootsnap', '>= 1.15.0', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
-# ODM for mongodb
-gem 'mongoid'
+gem 'activerecord', '~> 7.0.4', require: 'active_record'
+gem 'otr-activerecord'
+gem 'pg'
+
+gem 'slack-ruby-bot-server-events'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -39,8 +42,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# Slack Ruby Bot Server
-gem 'kaminari-mongoid'
-gem 'mongoid-scroll'
-gem 'slack-ruby-bot-server-events'

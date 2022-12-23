@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+
+test:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  database: slack_rails_bot_starter_test
+
+# DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+production:
+  url: <%= ENV['DATABASE_URL'] %>
