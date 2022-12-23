@@ -8,5 +8,6 @@ require_relative 'bot/slash_commands'
 require_relative 'bot/events'
 require_relative 'bot/actions'
 
-run Rails.application
+SlackRubyBotServer::App.instance.prepare!
 
+run Rails.application
