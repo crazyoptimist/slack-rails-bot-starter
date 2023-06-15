@@ -1,7 +1,8 @@
 # Slack Rails Bot Starter
 
-This is a boilerplate for building [slack apps](https://api.slack.com/start) with Ruby on Rails.  
-The default branch `master` uses Mongoid as database adapter. For ActiveRecord, checkout [`postgres`](https://github.com/crazyoptimist/slack-rails-bot-starter/tree/postgres) branch.
+This is a boilerplate for building [slack apps](https://api.slack.com/start) with Ruby on Rails.
+
+The default branch `master` uses Mongoid as database adapter. For ActiveRecord, please check [`postgres`](https://github.com/crazyoptimist/slack-rails-bot-starter/tree/postgres) branch.
 
 ## Setup
 
@@ -47,11 +48,11 @@ Grab the infomations for `.env` from **Basic Information** section.
 rails s
 ```
 
-Open **BASE_URL** in your browser
+Open **BASE_URL** in your browser.
 
 ## Deployment
 
-Follow the standard Rails app deployment methods
+Please follow the standard Ruby on Rails application deployment methods.
 
 ## License
 
@@ -59,14 +60,15 @@ Follow the standard Rails app deployment methods
 
 ## TODO
 
-[ ] Add Rubocop linting  
-[ ] Add Specs  
-[ ] Add TravisCI build flow  
-[ ] Add Contribution Guide
+- [ ] Add Rubocop linting
+- [ ] Add Specs
+- [ ] Add CI/CD with Github Actions
+- [ ] Add Contribution Guide
 
 ## Credit
 
-This boilerplate is built on top of [Slack Ruby Bot Server](https://github.com/slack-ruby/slack-ruby-bot-server) and [Slack Ruby Bot Server Events](https://github.com/slack-ruby/slack-ruby-bot-server-events)  
-Thanks to [Daniel Doubrovkine](https://github.com/dblock) for his great work.
+This boilerplate was inspired by [Slack Ruby Bot Server](https://github.com/slack-ruby/slack-ruby-bot-server) and [Slack Ruby Bot Server Events](https://github.com/slack-ruby/slack-ruby-bot-server-events).
+
+Thanks to [Daniel Doubrovkine](https://github.com/dblock) and all the contributors.
 
 Made with :heart: by [crazyoptimist](https://github.com/crazyoptimist) :dolphin:
