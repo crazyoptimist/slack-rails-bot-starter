@@ -6,7 +6,7 @@ ruby '3.1.3'
 # Load env variables
 gem 'dotenv-rails', '~> 2.7', require: 'dotenv/rails-now'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.4'
+gem 'rails', '~> 7.0.5'
 # Use Puma as the app server
 gem 'puma', '~> 6.0.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
