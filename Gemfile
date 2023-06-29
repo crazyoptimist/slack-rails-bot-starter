@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.3'
 
 # Load env variables
-gem 'dotenv-rails', '~> 2.7', require: 'dotenv/rails-now' 
+gem 'dotenv-rails', '~> 2.7', require: 'dotenv/rails-now'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 7.0.4'
 # Use Puma as the app server
@@ -25,6 +25,7 @@ gem 'bootsnap', '>= 1.15.0', require: false
 gem 'activerecord', '~> 7.0.4', require: 'active_record'
 gem 'otr-activerecord'
 gem 'pg'
+gem 'pagy_cursor'
 
 gem 'slack-ruby-bot-server-events'
 
