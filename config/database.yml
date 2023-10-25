@@ -1,18 +1,22 @@
-default: &default
-  adapter: postgresql
-  encoding: unicode
+# Hi - please dont edit this file directly, instead make changes in your .env file
+
+login: &login
+  adapter: <%= ENV['DATABASE_ADAPTER'] || 'postgresql' %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  encoding: unicode
 
 development:
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-  database: <%= ENV['DATABASE_NAME'] %>
+  <<: *login
 
 test:
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-  database: slack_rails_bot_starter_test
+  <<: *login
+  database: <%= ENV['DATABASE_TEST_NAME'] || 'slack_bot_test' %>
 
 production:
-  url: <%= ENV['DATABASE_URL'] %>
-  database: <%= ENV['DATABASE_NAME'] %>
+  <<: *login
+  database: <%= ENV['DATABASE_NAME'] || 'slack_bot_prod' %>
