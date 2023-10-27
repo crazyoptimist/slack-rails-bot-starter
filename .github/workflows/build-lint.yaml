@@ -16,6 +16,7 @@ on:
         default: false
 
 env:
+  GITHUB_REPOSITORY: ${{ github.repository }}
   REGISTRY: ghcr.io
   TAG: ${{ github.sha }}
   DOCKER_BUILDKIT: 1
@@ -30,7 +31,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -43,7 +44,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.PAT }}
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
@@ -81,14 +82,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
 
       - name: Github Container Login
         uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.PAT }}
 
       - name: Pull web image to prevent build
         run: >-
