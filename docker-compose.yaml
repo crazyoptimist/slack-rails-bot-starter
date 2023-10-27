@@ -13,8 +13,7 @@ services:
       - "./:/app/"
       - "./log:/app/log"
     env_file:
-      - .env
-      - .env.example
+      - test.env
     ports:
       - "3000:3000"
     command: bash -c "rails s -b 0.0.0.0"
@@ -25,8 +24,7 @@ services:
   db:
     image: postgres:14
     env_file:
-      - .env
-      - .env.example
+      - test.env
     environment:
       - POSTGRES_DB=${DATABASE_NAME}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
