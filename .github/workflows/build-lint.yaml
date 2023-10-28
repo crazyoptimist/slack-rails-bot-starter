@@ -3,7 +3,8 @@ run-name: Build & Lint of ${{ github.ref_name }} by @${{ github.actor }}
 on:
   push:
     branches:
-      - postgres
+      # - postgres
+      - ci/configure-lint
   pull_request:
     branches:
       - postgres
@@ -92,17 +93,17 @@ jobs:
           password: ${{ secrets.PAT }}
 
       - name: Pull web image to prevent build
+        env:
+          IMAGE_URI: '${{ env.REGISTRY  }}/${{ env.GITHUB_REPOSITORY  }}:${{ env.TAG  }}'
         run: >-
-          touch .env;
-          docker compose pull web
+          docker compose pull "$IMAGE_URI"
 
       - name: Run Rubocop
         run: >-
           [ -f "db/schema.rb" ] && chmod 777 db/schema.rb;
-          docker compose pull web;
           docker compose run -T web sh -c "bundle exec rubocop --parallel --format junit --out rubocop.xml"
 
-      - name: Publish Test Report
+      - name: Publish Linting Report
         uses: mikepenz/action-junit-report@v3
         if: always() # always run even if the previous step fails
         with:
