@@ -96,7 +96,7 @@ jobs:
         env:
           IMAGE_URI: '${{ env.REGISTRY  }}/${{ env.GITHUB_REPOSITORY  }}:${{ env.TAG  }}'
         run: >-
-          docker compose pull "$IMAGE_URI"
+          docker pull "$IMAGE_URI"
 
       - name: Run Rubocop
         run: >-
