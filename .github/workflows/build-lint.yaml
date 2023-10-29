@@ -3,8 +3,7 @@ run-name: Build & Lint of ${{ github.ref_name }} by @${{ github.actor }}
 on:
   push:
     branches:
-      # - postgres
-      - ci/configure-lint
+      - postgres
   pull_request:
     branches:
       - postgres
