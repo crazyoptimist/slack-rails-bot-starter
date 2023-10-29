@@ -1,10 +1,15 @@
 version: "3.9"
 
-services:
+volumes:
+  db:
 
-  rails_api:
-    container_name: rails_api
-    build: .
+services:
+  web:
+    image: "${IMAGE_URI}"
+    build:
+      target: web
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - "./:/app/"
       - "./log:/app/log"
@@ -12,3 +17,23 @@ services:
       - "3000:3000"
     command: bash -c "rails s -b 0.0.0.0"
     restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_started
+
+  db:
+    image: mongo:4
+    volumes:
+      - db:/data/db/
+    ports:
+      - 27017:27017
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DATABASE_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+    command: --quiet
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
