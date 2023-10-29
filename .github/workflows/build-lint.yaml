@@ -16,12 +16,12 @@ on:
         default: false
 
 env:
-  GITHUB_REPOSITORY: ${{ github.repository }}
   REGISTRY: ghcr.io
+  GITHUB_REPOSITORY: ${{ github.repository }}
   TAG: ${{ github.sha }}
   DOCKER_BUILDKIT: 1
   COMPOSE_DOCKER_CLI_BUILD: 1
-  MONGO_URL: "mongodb://user:password@db:27017/slack_bot_dev"
+  IMAGE_URI: 'ghcr.io/${{ github.repository  }}:${{ github.sha }}'
 
 jobs:
   build:
@@ -93,8 +93,6 @@ jobs:
           password: ${{ secrets.PAT }}
 
       - name: Pull web image to prevent build
-        env:
-          IMAGE_URI: '${{ env.REGISTRY  }}/${{ env.GITHUB_REPOSITORY  }}:${{ env.TAG  }}'
         run: >-
           docker pull "$IMAGE_URI"
       - name: Run Rubocop
