@@ -100,6 +100,7 @@ jobs:
       - name: Run Rubocop
         run: >-
           [ -f "db/schema.rb" ] && chmod 777 db/schema.rb;
+          cp .env.example .env;
           docker compose run -T web sh -c "bundle exec rubocop --parallel --format junit --out rubocop.xml"
 
       - name: Publish Linting Report
