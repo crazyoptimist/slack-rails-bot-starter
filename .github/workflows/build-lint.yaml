@@ -1,0 +1,109 @@
+name: 'Build & Lint'
+run-name: Build & Lint of ${{ github.ref_name }} by @${{ github.actor }}
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: false
+
+env:
+  GITHUB_REPOSITORY: ${{ github.repository }}
+  REGISTRY: ghcr.io
+  TAG: ${{ github.sha }}
+  DOCKER_BUILDKIT: 1
+  COMPOSE_DOCKER_CLI_BUILD: 1
+  MONGO_URL: "mongodb://user:password@db:27017/slack_bot_dev"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          token: ${{ secrets.PAT }}
+
+      - name: Set up QEMU
+
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.PAT }}
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
+        with:
+          limit-access-to-actor: true
+
+      - name: Retag action for web
+        id: meta-web
+        uses: docker/metadata-action@v4.1.1
+        with:
+          images: |
+            name=${{ env.REGISTRY }}/${{ env.GITHUB_REPOSITORY }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+      - name: Build and push web
+        uses: docker/build-push-action@v3
+        with:
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.GITHUB_REPOSITORY }}:latest
+          context: .
+          file: Dockerfile
+          platforms: 'linux/amd64'
+          push: true
+          tags: |
+            ${{ steps.meta-web.outputs.tags }}
+            ${{ env.REGISTRY }}/${{ env.GITHUB_REPOSITORY }}:${{ env.TAG }}
+          target: web
+
+  lint:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Github Container Login
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.PAT }}
+
+      - name: Pull web image to prevent build
+        env:
+          IMAGE_URI: '${{ env.REGISTRY  }}/${{ env.GITHUB_REPOSITORY  }}:${{ env.TAG  }}'
+        run: >-
+          docker pull "$IMAGE_URI"
+      - name: Run Rubocop
+        run: >-
+          [ -f "db/schema.rb" ] && chmod 777 db/schema.rb;
+          cp .env.example .env;
+          docker compose run -T web sh -c "bundle exec rubocop --parallel --format junit --out rubocop.xml"
+      - name: Publish Linting Report
+        uses: mikepenz/action-junit-report@v3
+        if: always() # always run even if the previous step fails
+        with:
+          report_paths: 'rubocop*.xml'
