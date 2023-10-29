@@ -5,6 +5,7 @@ volumes:
 
 services:
   web:
+    image: "${IMAGE_URI}"
     build:
       target: web
       context: .
